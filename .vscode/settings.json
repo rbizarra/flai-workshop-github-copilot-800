@@ -1,0 +1,6 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python3",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/octofit-tracker/backend"
+  ]
+}
