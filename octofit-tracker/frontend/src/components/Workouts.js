@@ -25,12 +25,24 @@ function Workouts() {
   }, [apiUrl]);
 
   const parseExercises = (exercises) => {
-    if (Array.isArray(exercises)) return exercises;
-    try {
-      return JSON.parse(exercises);
-    } catch {
-      return [exercises];
+    if (!exercises) return [];
+    let list;
+    if (Array.isArray(exercises)) {
+      list = exercises;
+    } else if (typeof exercises === 'string') {
+      try { list = JSON.parse(exercises); } catch { return [exercises]; }
+    } else {
+      return [];
     }
+    // Guard: Djongo can return objects instead of strings
+    return list.map((item) => {
+      if (typeof item === 'string') return item;
+      if (typeof item === 'object' && item !== null) {
+        const vals = Object.values(item);
+        return vals.length > 0 ? String(vals[0]) : JSON.stringify(item);
+      }
+      return String(item);
+    });
   };
 
   return (

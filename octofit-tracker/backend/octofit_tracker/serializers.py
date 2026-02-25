@@ -48,6 +48,7 @@ class LeaderboardSerializer(serializers.ModelSerializer):
 
 class WorkoutSerializer(serializers.ModelSerializer):
     _id = serializers.SerializerMethodField()
+    exercises = serializers.SerializerMethodField()
 
     class Meta:
         model = Workout
@@ -55,3 +56,28 @@ class WorkoutSerializer(serializers.ModelSerializer):
 
     def get__id(self, obj):
         return str(obj.pk)
+
+    def get_exercises(self, obj):
+        """Normalize Djongo JSONField: always return a plain list of strings."""
+        raw = obj.exercises
+        if not raw:
+            return []
+        if isinstance(raw, str):
+            import json
+            try:
+                raw = json.loads(raw)
+            except (ValueError, TypeError):
+                return [raw]
+        if isinstance(raw, list):
+            result = []
+            for item in raw:
+                if isinstance(item, str):
+                    result.append(item)
+                elif isinstance(item, dict):
+                    # Djongo wraps items as {0: 'value'} or {'value': 'value'}
+                    vals = list(item.values())
+                    result.append(str(vals[0]) if vals else str(item))
+                else:
+                    result.append(str(item))
+            return result
+        return [str(raw)]
