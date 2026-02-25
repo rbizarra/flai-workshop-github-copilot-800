@@ -9,17 +9,14 @@ import Workouts from './components/Workouts';
 function App() {
   return (
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark octofit-navbar">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
             <img
-              src={process.env.PUBLIC_URL + '/octofit-logo.png'}
-              alt="OctoFit"
-              height="30"
-              className="me-2"
-              onError={(e) => { e.target.style.display = 'none'; }}
+              src={process.env.PUBLIC_URL + '/octofitapp-small.png'}
+              alt="OctoFit Logo"
             />
-            OctoFit Tracker
+            <span className="brand-text">OctoFit Tracker</span>
           </NavLink>
           <button
             className="navbar-toggler"
