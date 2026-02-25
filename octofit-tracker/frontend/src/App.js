@@ -51,13 +51,19 @@ function App() {
         </div>
       </nav>
 
-      <div className="container-fluid mt-3">
+      <div className="container py-4">
         <Routes>
           <Route path="/" element={
-            <div className="text-center mt-5">
-              <h1>Welcome to OctoFit Tracker</h1>
-              <p className="lead">Track your fitness activities, compete with your team, and stay in shape!</p>
-              <p>Use the navigation above to explore Activities, Leaderboard, Teams, Users, and Workouts.</p>
+            <div className="hero-section text-center">
+              <h1 className="display-4 fw-bold mb-3">💪 OctoFit Tracker</h1>
+              <p className="lead mb-4">Track your fitness activities, compete with your team, and stay in shape!</p>
+              <div className="d-flex flex-wrap justify-content-center gap-2">
+                <a href="/activities" className="btn btn-light hero-nav-btn">Activities</a>
+                <a href="/leaderboard" className="btn btn-warning hero-nav-btn">Leaderboard</a>
+                <a href="/teams" className="btn btn-info hero-nav-btn">Teams</a>
+                <a href="/users" className="btn btn-light hero-nav-btn">Users</a>
+                <a href="/workouts" className="btn btn-success hero-nav-btn">Workouts</a>
+              </div>
             </div>
           } />
           <Route path="/activities" element={<Activities />} />

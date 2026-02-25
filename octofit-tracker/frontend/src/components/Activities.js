@@ -34,36 +34,50 @@ function Activities() {
   }, [apiUrl]);
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-3">Activities</h2>
-      {error && <div className="alert alert-danger">Error: {error}</div>}
-      <table className="table table-striped table-bordered table-hover">
-        <thead className="table-dark">
-          <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>Activity Type</th>
-            <th>Duration</th>
-            <th>Calories</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {activities.map((activity, index) => (
-            <tr key={activity._id || index}>
-              <td>{index + 1}</td>
-              <td>{activity.username}</td>
-              <td>{activity.activity_type}</td>
-              <td>{activity.duration}</td>
-              <td>{activity.calories} kcal</td>
-              <td>{formatDate(activity.date)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {activities.length === 0 && !error && (
-        <p className="text-muted">No activities found.</p>
-      )}
+    <div className="container py-4">
+      <div className="card octofit-card">
+        <div className="card-header d-flex align-items-center gap-2">
+          <span className="fs-4">🏃</span>
+          <h2 className="h5 mb-0">Activities</h2>
+        </div>
+        <div className="card-body p-0">
+          {error && <div className="alert alert-danger m-3">Error: {error}</div>}
+          <div className="table-responsive">
+            <table className="table table-striped table-hover align-middle octofit-table mb-0">
+              <thead>
+                <tr>
+                  <th style={{width:'50px'}}>#</th>
+                  <th>Username</th>
+                  <th>Activity Type</th>
+                  <th>Duration</th>
+                  <th>Calories</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {activities.map((activity, index) => (
+                  <tr key={activity._id || index}>
+                    <td className="text-center text-muted">{index + 1}</td>
+                    <td><code>{activity.username}</code></td>
+                    <td><span className="badge bg-primary bg-opacity-75">{activity.activity_type}</span></td>
+                    <td>{activity.duration}</td>
+                    <td><span className="badge bg-warning text-dark">{activity.calories} kcal</span></td>
+                    <td>{formatDate(activity.date)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {activities.length === 0 && !error && (
+            <p className="text-muted text-center py-4">No activities found.</p>
+          )}
+        </div>
+        {activities.length > 0 && (
+          <div className="card-footer text-muted text-end small">
+            {activities.length} activit{activities.length !== 1 ? 'ies' : 'y'} logged
+          </div>
+        )}
+      </div>
     </div>
   );
 }
