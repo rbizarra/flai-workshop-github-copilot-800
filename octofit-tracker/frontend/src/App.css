@@ -285,7 +285,9 @@ a:hover {
 ::-webkit-scrollbar-thumb { background: #90a4ae; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #546e7a; }
 
-/* ===== Responsive ===== */
+/* ===== Home nav cards ===== */
+a:has(.octofit-card),
+a .octofit-card {\n  cursor: pointer;\n}\n\na:has(.octofit-card):hover .card-title {\n  color: #e94560;\n}\n\n/* ===== Responsive ===== */
 @media (max-width: 576px) {
   .hero-section h1 { font-size: 1.8rem; }
   .hero-section { padding: 2.5rem 1.25rem; }

@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Link } from 'react-router-dom';
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
@@ -51,15 +51,82 @@ function App() {
       <div className="container py-4">
         <Routes>
           <Route path="/" element={
-            <div className="hero-section text-center">
-              <h1 className="display-4 fw-bold mb-3">💪 OctoFit Tracker</h1>
-              <p className="lead mb-4">Track your fitness activities, compete with your team, and stay in shape!</p>
-              <div className="d-flex flex-wrap justify-content-center gap-2">
-                <a href="/activities" className="btn btn-light hero-nav-btn">Activities</a>
-                <a href="/leaderboard" className="btn btn-warning hero-nav-btn">Leaderboard</a>
-                <a href="/teams" className="btn btn-info hero-nav-btn">Teams</a>
-                <a href="/users" className="btn btn-light hero-nav-btn">Users</a>
-                <a href="/workouts" className="btn btn-success hero-nav-btn">Workouts</a>
+            <div>
+              <div className="hero-section text-center mb-4">
+                <h1 className="display-4 fw-bold mb-3">💪 OctoFit Tracker</h1>
+                <p className="lead">Track your fitness activities, compete with your team, and stay in shape!</p>
+              </div>
+              <div className="row g-4">
+                <div className="col-sm-6 col-lg-4">
+                  <Link to="/users" className="text-decoration-none">
+                    <div className="card octofit-card h-100 text-center p-3">
+                      <div className="card-body">
+                        <div className="fs-1 mb-3">👥</div>
+                        <h5 className="card-title fw-bold">Users</h5>
+                        <p className="card-text text-muted">View all registered heroes and their profiles.</p>
+                      </div>
+                      <div className="card-footer">
+                        <span className="btn btn-primary btn-sm w-100">Go to Users →</span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-sm-6 col-lg-4">
+                  <Link to="/activities" className="text-decoration-none">
+                    <div className="card octofit-card h-100 text-center p-3">
+                      <div className="card-body">
+                        <div className="fs-1 mb-3">🏃</div>
+                        <h5 className="card-title fw-bold">Activities</h5>
+                        <p className="card-text text-muted">Browse logged workouts, durations, and calories burned.</p>
+                      </div>
+                      <div className="card-footer">
+                        <span className="btn btn-primary btn-sm w-100">Go to Activities →</span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-sm-6 col-lg-4">
+                  <Link to="/leaderboard" className="text-decoration-none">
+                    <div className="card octofit-card h-100 text-center p-3">
+                      <div className="card-body">
+                        <div className="fs-1 mb-3">🏆</div>
+                        <h5 className="card-title fw-bold">Leaderboard</h5>
+                        <p className="card-text text-muted">See who's leading the fitness race across all teams.</p>
+                      </div>
+                      <div className="card-footer">
+                        <span className="btn btn-warning btn-sm w-100">Go to Leaderboard →</span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-sm-6 col-lg-4">
+                  <Link to="/teams" className="text-decoration-none">
+                    <div className="card octofit-card h-100 text-center p-3">
+                      <div className="card-body">
+                        <div className="fs-1 mb-3">🛡️</div>
+                        <h5 className="card-title fw-bold">Teams</h5>
+                        <p className="card-text text-muted">Explore team rosters and their superhero members.</p>
+                      </div>
+                      <div className="card-footer">
+                        <span className="btn btn-info btn-sm w-100">Go to Teams →</span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-sm-6 col-lg-4">
+                  <Link to="/workouts" className="text-decoration-none">
+                    <div className="card octofit-card h-100 text-center p-3">
+                      <div className="card-body">
+                        <div className="fs-1 mb-3">🏋️</div>
+                        <h5 className="card-title fw-bold">Workouts</h5>
+                        <p className="card-text text-muted">Discover personalized workout plans for every hero.</p>
+                      </div>
+                      <div className="card-footer">
+                        <span className="btn btn-success btn-sm w-100">Go to Workouts →</span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
           } />
