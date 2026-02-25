@@ -29,6 +29,7 @@ class Activity(models.Model):
     username = models.CharField(max_length=100)
     activity_type = models.CharField(max_length=100)
     duration = models.CharField(max_length=50)
+    calories = models.IntegerField(default=0)
     date = models.DateField()
 
     class Meta:

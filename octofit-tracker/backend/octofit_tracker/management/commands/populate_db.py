@@ -49,14 +49,14 @@ class Command(BaseCommand):
         # Create activities
         self.stdout.write('Creating activities...')
         activities_data = [
-            {'username': 'ironman', 'activity_type': 'Flight Training', 'duration': '60 mins', 'date': date(2024, 1, 10)},
-            {'username': 'spiderman', 'activity_type': 'Web Swinging', 'duration': '45 mins', 'date': date(2024, 1, 11)},
-            {'username': 'thor', 'activity_type': 'Hammer Throw', 'duration': '30 mins', 'date': date(2024, 1, 12)},
-            {'username': 'captainamerica', 'activity_type': 'Shield Training', 'duration': '50 mins', 'date': date(2024, 1, 10)},
-            {'username': 'batman', 'activity_type': 'Martial Arts', 'duration': '90 mins', 'date': date(2024, 1, 11)},
-            {'username': 'wonderwoman', 'activity_type': 'Sword Training', 'duration': '75 mins', 'date': date(2024, 1, 12)},
-            {'username': 'superman', 'activity_type': 'Super Speed Run', 'duration': '20 mins', 'date': date(2024, 1, 13)},
-            {'username': 'theflash', 'activity_type': 'Speed Force Run', 'duration': '10 mins', 'date': date(2024, 1, 13)},
+            {'username': 'ironman', 'activity_type': 'Flight Training', 'duration': '60 mins', 'calories': 600, 'date': date(2024, 1, 10)},
+            {'username': 'spiderman', 'activity_type': 'Web Swinging', 'duration': '45 mins', 'calories': 450, 'date': date(2024, 1, 11)},
+            {'username': 'thor', 'activity_type': 'Hammer Throw', 'duration': '30 mins', 'calories': 400, 'date': date(2024, 1, 12)},
+            {'username': 'captainamerica', 'activity_type': 'Shield Training', 'duration': '50 mins', 'calories': 500, 'date': date(2024, 1, 10)},
+            {'username': 'batman', 'activity_type': 'Martial Arts', 'duration': '90 mins', 'calories': 750, 'date': date(2024, 1, 11)},
+            {'username': 'wonderwoman', 'activity_type': 'Sword Training', 'duration': '75 mins', 'calories': 620, 'date': date(2024, 1, 12)},
+            {'username': 'superman', 'activity_type': 'Super Speed Run', 'duration': '20 mins', 'calories': 300, 'date': date(2024, 1, 13)},
+            {'username': 'theflash', 'activity_type': 'Speed Force Run', 'duration': '10 mins', 'calories': 280, 'date': date(2024, 1, 13)},
         ]
         for a in activities_data:
             activity = Activity.objects.create(**a)

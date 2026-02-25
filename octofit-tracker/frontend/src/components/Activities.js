@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
+// Parse ISO date string (YYYY-MM-DD) safely without timezone shifting
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const [year, month, day] = dateStr.split('-');
+  if (!year || !month || !day) return dateStr;
+  const date = new Date(Number(year), Number(month) - 1, Number(day));
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 function Activities() {
   const [activities, setActivities] = useState([]);
   const [error, setError] = useState(null);
@@ -35,6 +44,7 @@ function Activities() {
             <th>Username</th>
             <th>Activity Type</th>
             <th>Duration</th>
+            <th>Calories</th>
             <th>Date</th>
           </tr>
         </thead>
@@ -45,7 +55,8 @@ function Activities() {
               <td>{activity.username}</td>
               <td>{activity.activity_type}</td>
               <td>{activity.duration}</td>
-              <td>{activity.date}</td>
+              <td>{activity.calories} kcal</td>
+              <td>{formatDate(activity.date)}</td>
             </tr>
           ))}
         </tbody>

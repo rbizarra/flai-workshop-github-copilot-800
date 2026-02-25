@@ -29,7 +29,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Activity
-        fields = ['_id', 'username', 'activity_type', 'duration', 'date']
+        fields = ['_id', 'username', 'activity_type', 'duration', 'calories', 'date']
 
     def get__id(self, obj):
         return str(obj.pk)
