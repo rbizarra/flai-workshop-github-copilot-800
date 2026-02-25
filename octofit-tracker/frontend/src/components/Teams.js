@@ -25,12 +25,17 @@ function Teams() {
   }, [apiUrl]);
 
   const parseMembers = (members) => {
+    if (!members) return [];
     if (Array.isArray(members)) return members;
-    try {
-      return JSON.parse(members);
-    } catch {
-      return [members];
+    if (typeof members === 'string') {
+      try {
+        const parsed = JSON.parse(members);
+        return Array.isArray(parsed) ? parsed : [members];
+      } catch {
+        return [members];
+      }
     }
+    return [];
   };
 
   return (
@@ -43,20 +48,27 @@ function Teams() {
             <th>#</th>
             <th>Team Name</th>
             <th>Members</th>
+            <th>Member Count</th>
           </tr>
         </thead>
         <tbody>
-          {teams.map((team, index) => (
-            <tr key={team._id || index}>
-              <td>{index + 1}</td>
-              <td>{team.name}</td>
-              <td>
-                {parseMembers(team.members).map((m, i) => (
-                  <span key={i} className="badge bg-primary me-1">{m}</span>
-                ))}
-              </td>
-            </tr>
-          ))}
+          {teams.map((team, index) => {
+            const memberList = parseMembers(team.members);
+            return (
+              <tr key={team._id || index}>
+                <td>{index + 1}</td>
+                <td>{team.name}</td>
+                <td>
+                  {memberList.map((m, i) => (
+                    <span key={i} className="badge bg-primary me-1">{m}</span>
+                  ))}
+                </td>
+                <td>
+                  <span className="badge bg-secondary">{memberList.length}</span>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       {teams.length === 0 && !error && (
