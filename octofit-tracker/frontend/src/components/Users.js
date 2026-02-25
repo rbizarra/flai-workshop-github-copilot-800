@@ -32,6 +32,7 @@ function Users() {
         <thead className="table-dark">
           <tr>
             <th>#</th>
+            <th>Name</th>
             <th>Username</th>
             <th>Email</th>
           </tr>
@@ -40,6 +41,7 @@ function Users() {
           {users.map((user, index) => (
             <tr key={user._id || index}>
               <td>{index + 1}</td>
+              <td>{user.name}</td>
               <td>{user.username}</td>
               <td>{user.email}</td>
             </tr>

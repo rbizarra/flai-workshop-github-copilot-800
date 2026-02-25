@@ -18,14 +18,14 @@ class Command(BaseCommand):
         # Create users (superheroes)
         self.stdout.write('Creating users...')
         users_data = [
-            {'username': 'ironman', 'email': 'tony@starkindustries.com', 'password': 'pepper3000'},
-            {'username': 'spiderman', 'email': 'peter@dailybugle.com', 'password': 'webslinger'},
-            {'username': 'thor', 'email': 'thor@asgard.com', 'password': 'mjolnir'},
-            {'username': 'captainamerica', 'email': 'steve@shield.com', 'password': 'vibraniumshield'},
-            {'username': 'batman', 'email': 'bruce@wayneenterprises.com', 'password': 'darknight'},
-            {'username': 'wonderwoman', 'email': 'diana@themyscira.com', 'password': 'lasso0ftruth'},
-            {'username': 'superman', 'email': 'clark@dailyplanet.com', 'password': 'kryptonite'},
-            {'username': 'theflash', 'email': 'barry@centralcitylab.com', 'password': 'speedforce'},
+            {'name': 'Tony Stark', 'username': 'ironman', 'email': 'tony@starkindustries.com', 'password': 'pepper3000'},
+            {'name': 'Peter Parker', 'username': 'spiderman', 'email': 'peter@dailybugle.com', 'password': 'webslinger'},
+            {'name': 'Thor Odinson', 'username': 'thor', 'email': 'thor@asgard.com', 'password': 'mjolnir'},
+            {'name': 'Steve Rogers', 'username': 'captainamerica', 'email': 'steve@shield.com', 'password': 'vibraniumshield'},
+            {'name': 'Bruce Wayne', 'username': 'batman', 'email': 'bruce@wayneenterprises.com', 'password': 'darknight'},
+            {'name': 'Diana Prince', 'username': 'wonderwoman', 'email': 'diana@themyscira.com', 'password': 'lasso0ftruth'},
+            {'name': 'Clark Kent', 'username': 'superman', 'email': 'clark@dailyplanet.com', 'password': 'kryptonite'},
+            {'name': 'Barry Allen', 'username': 'theflash', 'email': 'barry@centralcitylab.com', 'password': 'speedforce'},
         ]
         users = []
         for u in users_data:
